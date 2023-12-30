@@ -14,7 +14,7 @@ In Apache Spark, a distributed data processing framework, storage layers are cri
    The Disk Storage Layer in Apache Spark is a critical component that allows data to be persisted on disk when it can no longer fit in memory due to memory constraints. This layer provides fault tolerance and data durability by storing RDD (Resilient Distributed Dataset) partitions on disk, ensuring that data can be recovered in case of node failures or application restarts. Let's dive into the Disk Storage Layer in more detail:
 
 
-   *Persistence Levels*:
+   **Persistence Levels**:
    - In Spark, you can configure different persistence levels for RDDs, which determine how RDDs are stored on disk. Common persistence levels include:
      - **DISK_ONLY**: RDD partitions are stored on disk.
      - **MEMORY_AND_DISK**: Data is stored in memory as much as possible, and any excess data spills to disk.
@@ -60,4 +60,4 @@ In summary, the Disk Storage Layer in Spark plays a crucial role in managing dat
 6. **External Data Sources**:
    - Spark can read and write data to/from various external data sources like HDFS, Apache Cassandra, HBase, JDBC databases, and more. These external data sources provide a way to ingest, store, and access data during Spark processing.
 
-In summary, Spark's storage layers are essential for optimizing data processing in distributed computing environments. Depending on the use case and resource constraints, Spark allows you to configure different storage levels to strike a balance between memory usage, CPU usage, and fault tolerance. Properly configuring and managing these storage layers is crucial for ensuring the performance and reliability of Spark applications. Note that there may have been updates or changes to Spark's storage capabilities after my knowledge cutoff date in January 2022, so it's a good idea to consult the latest Spark documentation for any new features or improvements.
+In summary, Spark's storage layers are essential for optimizing data processing in distributed computing environments. Depending on the use case and resource constraints, Spark allows you to configure different storage levels to strike a balance between memory usage, CPU usage, and fault tolerance. Properly configuring and managing these storage layers is crucial for ensuring the performance and reliability of Spark applications. 
