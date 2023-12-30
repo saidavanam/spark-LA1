@@ -49,7 +49,7 @@ In Apache Spark, a distributed data processing framework, storage layers are cri
 3. **Off-Heap Storage**:
   Certainly! Off-Heap Storage in Apache Spark is a memory management technique that involves storing data outside the Java Virtual Machine (JVM) heap. This mechanism is designed to address certain limitations associated with in-memory storage within the JVM heap. Off-Heap Storage is particularly beneficial for handling large volumes of data efficiently and mitigating the impact of garbage collection (GC) on Spark application performance. Let's delve into the details of Off-Heap Storage:
 
-**Memory Management**: In Spark, when data is stored in the JVM heap, it is subject to Java garbage collection (GC). Frequent GC pauses can significantly affect application performance, especially when dealing with large datasets.
+- **Memory Management**: In Spark, when data is stored in the JVM heap, it is subject to Java garbage collection (GC). Frequent GC pauses can significantly affect application performance, especially when dealing with large datasets.
 - **Heap Size Constraints**: The size of the JVM heap is often limited by the available physical memory. Storing extremely large datasets in the heap may not be feasible due to heap size limitations.
 
 **How Off-Heap Storage Works**:
