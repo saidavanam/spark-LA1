@@ -42,4 +42,4 @@ Apache Spark is an open-source, distributed computing framework that was develop
 -Includes stability fixes in the latest version 3.2.4 (April 2023).
 - Ex:-Pandas API support,RocksDB StateStore,Session window support,Push-based shuffle,ANSI SQL mode GA.
 
-- Apache Spark continues to evolve, with each release bringing new features, optimizations, and improvements to the framework.->It has become a popular choice for big data processing, machine learning, and real-time analytics due to its versatility and performance.->Users and organizations continue to contribute to and benefit from the Spark ecosystem, making it a vibrant and active open-source project
+  Apache Spark continues to evolve, with each release bringing new features, optimizations, and improvements to the framework.->It has become a popular choice for big data processing, machine learning, and real-time analytics due to its versatility and performance.->Users and organizations continue to contribute to and benefit from the Spark ecosystem, making it a vibrant and active open-source project
