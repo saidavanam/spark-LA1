@@ -108,10 +108,87 @@ Creating Resilient Distributed Datasets (RDDs) in Apache Spark is a fundamental 
 
 
 ## 3. Operations on RDDs
-- **Types**:
-  - **Transformations**: Operations like `map`, `filter`, `flatMap`, etc., that return a new RDD.
-  - **Actions**: Operations like `reduce`, `collect`, `count`, etc., that return a value after computing a result.
-- **Diagram**: Showcases a few examples of both transformations and actions applied to an RDD.
+Operations on Resilient Distributed Datasets (RDDs) in Apache Spark are fundamental to processing and analyzing large data sets in a distributed environment. There are two main types of operations that can be performed on RDDs: transformations and actions.
+
+### Transformations
+Transformations are operations that create a new RDD from an existing one. They are lazy, meaning they are not executed immediately but are scheduled to run when an action is performed.
+
+- **map**: Applies a function to each element in the RDD, returning a new RDD.
+  ```python
+  rdd2 = rdd.map(lambda x: x * 2)
+  ```
+  
+- **filter**: Returns a new RDD containing only the elements that meet a specified condition.
+  ```python
+  filtered_rdd = rdd.filter(lambda x: x % 2 == 0)
+  ```
+
+- **flatMap**: Similar to map, but each input item can be mapped to 0 or more output items.
+  ```python
+  flatmapped_rdd = rdd.flatMap(lambda x: (x, x*2, x*3))
+  ```
+
+- **distinct**: Returns a new RDD containing distinct items from the original RDD.
+  ```python
+  distinct_rdd = rdd.distinct()
+  ```
+
+- **reduceByKey** (for pair RDDs): Aggregates values with the same key.
+  ```python
+  sum_rdd = pair_rdd.reduceByKey(lambda x, y: x + y)
+  ```
+
+- **join** (for pair RDDs): Joins two RDDs based on their key.
+  ```python
+  joined_rdd = pair_rdd1.join(pair_rdd2)
+  ```
+
+###  Actions
+Actions are operations that trigger execution and return a result to the driver program or write it to storage.
+
+- **collect**: Returns the entire RDD's contents to the driver program.
+  ```python
+  data = rdd.collect()
+  ```
+
+- **count**: Returns the number of elements in the RDD.
+  ```python
+  count = rdd.count()
+  ```
+
+- **first**: Returns the first element in the RDD.
+  ```python
+  first_element = rdd.first()
+  ```
+
+- **take**: Returns an array with the first 'n' elements of the RDD.
+  ```python
+  first_n_elements = rdd.take(n)
+  ```
+
+- **reduce**: Aggregates the elements of the RDD using a function.
+  ```python
+  sum = rdd.reduce(lambda x, y: x + y)
+  ```
+
+- **saveAsTextFile**: Write the RDD to a text file.
+  ```python
+  rdd.saveAsTextFile("path/to/output")
+  ```
+
+#### Key Points to Remember
+- **Laziness of Transformations**: They are only executed when an action is called.
+- **Immutability**: Each transformation creates a new RDD; the original RDD remains unchanged.
+- **Fault Tolerance**: RDDs keep track of their lineage graph (a series of transformations from the original dataset) to rebuild lost data.
+- **Wide vs. Narrow Dependencies**: Transformations like `map` and `filter` create narrow dependencies (data can be processed in parallel without shuffling). In contrast, operations like `reduceByKey` and `join` create wide dependencies (data shuffle across partitions may be needed).
+
+
+
+
+
+
+
+
 
 ## 4. Function Passing to Spark
 - **Concept**: Functions can be passed to Spark to apply transformations or actions on RDDs.
