@@ -22,26 +22,26 @@ In Apache Spark, a distributed data processing framework, storage layers are cri
      - **MEMORY_AND_DISK_SER**: Similar to MEMORY_AND_DISK, but with data serialized in memory.
      - **MEMORY_ONLY_2, MEMORY_AND_DISK_2, MEMORY_ONLY_SER_2, MEMORY_AND_DISK_SER_2**: These levels replicate data on two different nodes for fault tolerance.
 
-   *Write-Through and Write-Behind Caching*:
+   **Write-Through and Write-Behind Caching**:
    - When data needs to be written to disk, Spark can use write-through or write-behind caching strategies.
    - Write-Through Caching: Data is immediately written to disk when it is persisted. This ensures data durability but can introduce some overhead due to disk writes.
    - Write-Behind Caching: Data is initially cached in memory, and disk writes are deferred until necessary. This can improve write performance at the cost of potential data loss if a node fails before writing to disk.
 
-   *Data Serialization*:
+   **Data Serialization**:
    - When data is written to disk, Spark provides options for data serialization. Serialization can reduce memory overhead and disk I/O but may increase CPU usage.
    - Common serialization formats include Java Serialization, Kryo, and Avro.
 
-   *Storage Mechanism*:
+   **Storage Mechanism**:
    - RDD partitions are typically stored on the local file system of each worker node. However, it's also possible to configure Spark to use distributed file systems like HDFS for storage.
 
-   *Data Eviction and Rehydration*:
+   **Data Eviction and Rehydration**:
    - When memory is under pressure, Spark may evict RDD partitions from memory. These evicted partitions can be reloaded into memory from disk when needed, allowing for seamless data access and processing.
    - The choice of which RDD partitions to evict and when to rehydrate them is managed by Spark's internal caching policies.
 
-   *Fault Tolerance*:
+   **Fault Tolerance**:
    - One of the primary purposes of the Disk Storage Layer is to provide fault tolerance. By persisting data on disk, Spark ensures that lost RDD partitions can be reconstructed from the persisted copies in case of node failures or task failures.
 
-   *Configuration*:
+   **Configuration**:
    - Spark allows you to configure various parameters related to the Disk Storage Layer, such as the location where data is stored on disk, the level of data replication for fault tolerance, and serialization options.
 
 In summary, the Disk Storage Layer in Spark plays a crucial role in managing data that doesn't fit entirely in memory. It provides fault tolerance, data durability, and the ability to recover lost data in case of failures. The choice of persistence level, serialization format, and other configurations depends on the specific requirements and resource constraints of your Spark application. Properly configuring the Disk Storage Layer is essential for optimizing the performance and reliability of Spark applications, especially when dealing with large datasets or long-running jobs.
