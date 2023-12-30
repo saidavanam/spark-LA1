@@ -1,4 +1,3 @@
-
 Apache Spark is an open-source, distributed computing framework that was developed to address the limitations of Hadoop MapReduce and enable faster and more flexible big data processing. It was initially created at the University of California, Berkeley's AMPLab, and later became an Apache Software Foundation project. Let's discuss the history of Apache Spark, including its major versions and releases.
 
 1. **Genesis (2009-2010)**:
