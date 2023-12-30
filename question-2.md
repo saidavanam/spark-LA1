@@ -79,6 +79,8 @@ In Apache Spark, a distributed data processing framework, storage layers are cri
 - It's essential to strike a balance between off-heap and on-heap memory allocation based on your application's requirements and available resources.
 
 In summary, Off-Heap Storage in Spark provides a solution for efficient memory management and reduced GC overhead, making it a valuable tool when dealing with large datasets and latency-sensitive applications. However, it also introduces additional complexity and considerations for memory management and data serialization. Properly configuring and managing off-heap storage is essential for optimizing Spark application performance.
+
+
 4. **Tachyon (Discontinued)**:
    - Tachyon, previously an integral part of Spark, was a distributed in-memory file system designed to accelerate Spark workloads by providing a reliable and efficient in-memory storage layer. However, as of my knowledge cutoff date in January 2022, the Tachyon project has been discontinued in favor of other storage options.
 
