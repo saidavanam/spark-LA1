@@ -107,8 +107,6 @@ Creating Resilient Distributed Datasets (RDDs) in Apache Spark is a fundamental 
 - **Serialization**: When working with key-value pairs, consider the serialization format for efficiency, especially for network-intensive operations.
 
 
-
-
 ## 3. Operations on RDDs
 - **Types**:
   - **Transformations**: Operations like `map`, `filter`, `flatMap`, etc., that return a new RDD.
